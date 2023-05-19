@@ -1,9 +1,14 @@
-<h1> Page principal</h1>
+<mat-toolbar>
+    <a routerLink="/">LOGO</a>
+    <button mat-raised-button (click)="openAddCarForm()">Add car</button>
+    <button mat-raised-button (click)="openDisplayCarsForm()">List of cars</button>
 
-<nav>
-    <li> <a routerLink="/">Home</a> </li>
-    <li> <a routerLink="/addcar">Add car</a></li>
-    <li> <a routerLink="/lisofcars">Cars</a></li>
-</nav>
+    <span class="example-spacer"></span>
 
+    <nav class="button">
+        <button mat-raised-button (click)="openLoginForm()">Login</button>
+        <button mat-raised-button (click)="openSigneUpForm()">Sign Up</button>
+    </nav>
+    <mat-toolbar>
+        
 <router-outlet></router-outlet>
