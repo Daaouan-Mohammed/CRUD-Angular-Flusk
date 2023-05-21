@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 17 mai 2023 à 02:52
+-- Généré le : dim. 21 mai 2023 à 22:56
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -40,8 +40,8 @@ CREATE TABLE `car` (
 --
 
 INSERT INTO `car` (`id_car`, `model`, `hp`, `marque`, `user_id`) VALUES
-(7, 'said', '123456789', 'aaaaaaaaaa', 1),
-(8, 'ccccccccc', 'cccccccccccc', 'ccccccccccccccc', 1);
+(28, 'x6', '10000', 'bmw', 9),
+(29, 'x65', '10000', 'bmw', 9);
 
 -- --------------------------------------------------------
 
@@ -60,8 +60,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
-(1, 'said', '$2b$12$uY5tLeGpk8YR1RihLMXQqOcx1j1..VcBHbZg.u4Szqof/sF1vi3hu'),
-(2, 'haitam', '$2b$12$WnaAOTEUTDPO482sc.dgv.F9nLgG.2UYSYCy.znmEX0BAjiCodBzW');
+(5, 'MOHAMMED', '$2b$12$kpU4LoxS.LKu9f2yXUrNheD8BtFrrZJ/jw5xK5gcompU8a0CQuPsK'),
+(6, 'tghn', '$2b$12$k/QuUYedtnI.eM2gyU.5jOGp99yTgppXXLR7NLNmDydbO3hxx6X..'),
+(8, 'moo', '$2b$12$YNzsRvF//exBJqIGk8HDne3nR6RB8JkTEgQ0iyOWVMySt.xgiRt0m'),
+(9, 'lo', '$2b$12$HilikvL.ZfMe0r9WvhZAKurwuYzgvTfaURSEHj2TWFhJx91vdPYKe');
 
 --
 -- Index pour les tables déchargées
@@ -88,13 +90,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `car`
 --
 ALTER TABLE `car`
-  MODIFY `id_car` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_car` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Contraintes pour les tables déchargées
