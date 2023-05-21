@@ -1,13 +1,15 @@
 <mat-toolbar>
     <a routerLink="/">LOGO</a>
     <button mat-raised-button (click)="openAddCarForm()">Add car</button>
-    <button mat-raised-button (click)="openDisplayCarsForm()">List of cars</button>
+    <button mat-raised-button routerLink="/cars">List of cars</button>
 
     <span class="example-spacer"></span>
 
     <nav class="button">
         <button mat-raised-button (click)="openLoginForm()">Login</button>
         <button mat-raised-button (click)="openSigneUpForm()">Sign Up</button>
+        <button mat-raised-button (click)="logout()">Logout</button>
+
     </nav>
     <mat-toolbar>
         

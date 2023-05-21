@@ -1,6 +1,7 @@
 import bcrypt
 from flask import jsonify
 from flask import Flask, request  , jsonify
+import flask
 import myCar as car
 import myUser as user
 from flask_cors import CORS, cross_origin
@@ -49,12 +50,13 @@ def saveCar():
 
 ######################################################
 @app.route('/cars')
-@jwt_required()
+#@jwt_required()
 def cars():
     try:
-        user_id = get_jwt_identity()
+        #user_id = get_jwt_identity()
         myCursor = mydb.cursor()
-        myCursor.execute("SELECT model , hp , marque FROM car WHERE user_id=%s",(user_id,))
+        #myCursor.execute("SELECT model , hp , marque FROM car WHERE user_id=%s",(user_id,))
+        myCursor.execute("SELECT id_car, model , hp , marque FROM car")
         carRows = myCursor.fetchall()
         respone = jsonify(carRows)
         respone.status_code = 200
@@ -163,6 +165,7 @@ def login():
     print(myresult)
     if bcrypt.checkpw(password.encode('utf8'),myresult[2].encode('utf8')):
         access_token = create_access_token(identity=myresult[0])
+     
         return jsonify(access_token=access_token)
     else :
          return "username or password invalid"

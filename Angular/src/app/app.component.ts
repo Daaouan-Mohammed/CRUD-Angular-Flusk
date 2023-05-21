@@ -5,6 +5,7 @@ import { CarComponent } from './components/car/car.component';
 import { CarsComponent } from './components/cars/cars.component';
 import { SigneUpComponent } from './components/signe-up/signe-up.component';
 import { LoginComponent } from './components/login/login.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -36,6 +37,10 @@ export class AppComponent {
 
   openLoginForm() {
     this._Login.open(LoginComponent, { width: '500px', disableClose: false });
+  }
+
+  logout(){
+    localStorage.clear();
   }
 
 }

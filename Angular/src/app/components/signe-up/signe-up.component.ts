@@ -4,7 +4,7 @@ import { UserService } from '../../services/user.service';
 import { DialogRef } from '@angular/cdk/dialog';
 import { SnackBarService } from '../../services/snack-bar.service';
 import { LoginComponent } from '../login/login.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-signe-up',
@@ -18,7 +18,7 @@ export class SigneUpComponent {
   constructor(
     private _fb: FormBuilder ,  
     private _userService: UserService, 
-    private _dialogRef: DialogRef<SigneUpComponent>,
+    private _dialogRef: MatDialogRef<SigneUpComponent>,
     private _snackBarService: SnackBarService,
     private _Login: MatDialog,
     ){

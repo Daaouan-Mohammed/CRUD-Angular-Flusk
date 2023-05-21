@@ -6,32 +6,32 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
 export class CarServiceService {
+
   // url principal 
-  url: string = "http://127.0.0.1:5000";
+  url:string = "http://127.0.0.1:5000";
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http:HttpClient) { }
 
-  saveCare(car: CarModule) {
-    console.log(this.url + "/savecar");
-    console.log("car service" + car);
-    return this.http.post(this.url + "/savecar", car, this.httpOptions);
-  }
-
-  getAllcars(): Observable<CarModule[]> {
-    return this.http.get<CarModule[]>(this.url + "/cars", this.httpOptions);
-  }
-
-  deleteCar(id_car:number):Observable<any>{
-    return this.http.delete<CarModule[]>(this.url + '/deletecar/<id>', this.httpOptions);
-  }
-
-  updateCar(id_car:number,data:any):Observable<CarModule[]>{
-    return this.http.put<CarModule[]>(this.url + '/updatecar/<id>', this.httpOptions);
-  }
  
+  saveCare(car:CarModule): Observable<any>
+  {
+    return this.http.post(this.url+"/savecar" , car , this.httpOptions );
+
+  }
+  getAllcars():Observable<CarModule[]>{
+
+     return  this.http.get<CarModule[]>(this.url+"/cars" ,this.httpOptions );
+
+
+
+  }
+
+
+
+
 }

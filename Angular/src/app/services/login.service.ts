@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,7 @@ export class LoginService {
   public login(username:string, password:string): Observable<any> {
     return this.http.post(this.url + "/login", {username, password}, this.httpOptions);
   }
-
+/*
   public authenticateUser(token:string):Observable<boolean>{
     localStorage.setItem("acces_token", token);
     return of(true);
@@ -35,6 +36,14 @@ export class LoginService {
 
   public isAuthenticated():boolean{
     return !!this.getToken();
+  }*/
+
+  IsLogedIn(){
+    return localStorage.getItem('token')!=null;
+  }
+
+  GetToken(){
+    return localStorage.getItem('token')||'';
   }
 
 }

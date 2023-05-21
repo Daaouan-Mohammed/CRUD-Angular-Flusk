@@ -14,9 +14,7 @@ import { Router } from '@angular/router';
 })
 export class CarComponent {
   // two way binding
-  model!: string;
-  hp!: number;
-  marque!: string;
+
 
   AddCarForm: FormGroup;
   errorMsg: any;
@@ -31,16 +29,16 @@ export class CarComponent {
   ) {
     //that could be in ngOnInit()
     this.AddCarForm = this._fb.group({
-      model: this._fb.control(""),
-      hp: this._fb.control(""),
-      marque: this._fb.control(""),
+      hp: '',
+      model: '',
+      marque: '',
     })
     //update
     this.AddCarForm.patchValue(this.data);
   }
 
   //event bindding
-  saveMe() {
+ /* OnFormSave() {
     console.log("click!!!!1");
     let mycar = new CarModule();
     mycar.id_car = 0;
@@ -48,10 +46,32 @@ export class CarComponent {
     mycar.model = this.model;
     mycar.marque = this.marque;
     console.log(mycar);
-    this.carservice.saveCare(mycar).subscribe();
+    this.carservice.saveCare(mycar).subscribe({
+      next:(val: any)=>{
+        this._dialogRef.close();
+      },
+      error:(err: any)=>{
+        console.log(err);
+      },
+    });
     this._dialogRef.close();
     this._snackBarService.openSnackBar("Car created successfully");
-  }
+  } */
+
+  OnFormSave(){
+    if(this.AddCarForm)
+    {
+      this.carservice.saveCare(this.AddCarForm.value).subscribe({
+        next:(val: any)=>{
+
+          this._dialogRef.close();
+        },
+        error:(err: any)=>{
+          console.log(err);
+        },
+      })
+    }
+  } 
 
    
 

@@ -24,6 +24,7 @@ export class LoginComponent {
     private _login: LoginService,
     private _SigneUp: MatDialog,
   ) {
+    localStorage.clear();
     this.LoginForm = this._fb.group({
       username: this._fb.control(""),
       password: this._fb.control(""),
@@ -34,16 +35,13 @@ export class LoginComponent {
     let username = this.LoginForm.value.username;
     let password = this.LoginForm.value.password;
     this._login.login(username, password).subscribe({
-      next: (AppUser) => {
-        this._login.authenticateUser(AppUser).subscribe({
-          next: (data: boolean) => {
-            this._dialogRef.close();
-            this._router.navigateByUrl("./home");
-          }
-        });
-      },
-      error: (err) => {
-        this.errorMsg = err;
+      next:(response: any) => {
+        if (response != null) {
+          let access_token=response.access_token;
+          localStorage.setItem('token', access_token);
+          console.log(access_token);
+          this._dialogRef.close();
+        }
       }
     });
   }
