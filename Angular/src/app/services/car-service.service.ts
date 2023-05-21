@@ -26,9 +26,15 @@ export class CarServiceService {
   getAllcars():Observable<CarModule[]>{
 
      return  this.http.get<CarModule[]>(this.url+"/cars" ,this.httpOptions );
+  }
 
+  deleteCar(id_car:number):Observable<any>{
+    console.log(id_car);
+    return this.http.delete<CarModule[]>(this.url + '/deletecar/'+id_car, this.httpOptions);
+  }
 
-
+  updateCar(id_car:number,data:any):Observable<CarModule[]>{
+    return this.http.put<CarModule[]>(this.url + '/updatecar/'+id_car, this.httpOptions);
   }
 
 
